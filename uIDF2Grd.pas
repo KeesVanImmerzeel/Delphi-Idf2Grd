@@ -51,7 +51,7 @@ type
 
     // When loading the package, an instance of a form will be created.
     // To create forms SelectIDFfile and BndBoxDlg
-    FHandle_ServiceComponents: THandle;
+    //FHandle_ServiceComponents: THandle;
 
   public
     { Public declarations }
@@ -68,7 +68,6 @@ var
   SingleESRIgrid1 : TSingleESRIgrid;
   BaseDir: String;
   IDFfileNamesList: TStringList;
-  Mode: TMode;
 
 implementation
 
@@ -126,7 +125,7 @@ begin
   Caption := ExtractFileName( ChangeFileExt( ParamStr( 0 ), '' ) );
   //SelectIDFfile := TSelectIDFfile.Create( self );
   // Load Package "ServiceComponents.bpl"
-  FHandle_ServiceComponents := LoadPackage('ServiceComponents.bpl');
+  //FHandle_ServiceComponents := LoadPackage('ServiceComponents.bpl');
   LabelOutputDir.Caption := BaseDir;
   IDFfileNamesList := TStringList.Create;
   FIniFile := TRegIniFile.Create('Idf2Grd');
@@ -243,7 +242,7 @@ begin
   IDFfileNamesList.Free;
   FIniFile.Free;
 
-  UnloadPackage(FHandle_ServiceComponents);
+  //UnloadPackage(FHandle_ServiceComponents);
 
 end;
 
@@ -359,6 +358,5 @@ initialization
   inBndBox[2] := 225000;
   inBndBox[3] := 570000;
   BaseDir := 'c:\';
-  Mode := interactive;
 finalization
 end.
